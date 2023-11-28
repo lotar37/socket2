@@ -2,9 +2,9 @@
 <div class="w-96 mx-auto pt-6">
     <h1 class="text-lg mb-8">Записи</h1>
     <div>
-        <Link :href="route('post.create')" class="block hover:bg-white hover:text-sky-500 border border-sky-500 bg-sky-500 rounded-full text-center text-white p-2 w-32">Add Post</Link>
+        <Link :href="route('post.index')" class="text-sky-600 text-sm mb-8">Back</Link>
     </div>
-    <div v-for="post in posts" class="mb-8 mt-8 border-t border-gray-300">
+    <div class="mb-8 mt-8 border-t border-gray-300">
       <div>id:{{ post.id }}</div>
         <div>title:{{ post.title }}</div>
         <div>content:{{ post.content }}</div>
@@ -24,7 +24,7 @@ export default {
         Link
     },
     props:[
-        'posts'
+        'post'
     ]
 
 

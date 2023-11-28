@@ -9,6 +9,9 @@
         <div>title:{{ post.title }}</div>
         <div>content:{{ post.content }}</div>
         <div class="text-sm text-right">created_at:{{ post.date }}</div>
+        <div class="text-sm text-right text-sky-500">
+            <Link :href="route('post.show',post.id)">Show</Link>
+        </div>
 
     </div>
 

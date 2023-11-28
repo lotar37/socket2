@@ -19,6 +19,10 @@ class PostController extends Controller
     {
         return inertia('Post/Create');
     }
+    public function show(Post $post)
+    {
+        return inertia('Post/Show', compact('post'));
+    }
    public function store(StoreRequest $request)
     {
         $data = $request->validated();
