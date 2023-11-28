@@ -1,5 +1,5 @@
 <template>
-<div class="w-96 mx-auto pt-6">
+
     <h1 class="text-lg mb-8">Записи</h1>
     <div>
         <Link :href="route('post.index')" class="text-sky-600 text-sm mb-8">Back</Link>
@@ -12,15 +12,16 @@
 
     </div>
 
-</div>
+
 </template>
 
 <script>
 import {Link} from "@inertiajs/vue3";
+import MainLayout from "@/Layouts/MainLayout.vue";
 
 export default {
     name: "Index",
-    components:{
+    layout: MainLayout,    components:{
         Link
     },
     props:[
