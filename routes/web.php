@@ -39,5 +39,8 @@ Route::get('/posts',[\App\Http\Controllers\PostController::class, 'index'])->nam
 Route::get('/posts/create',[\App\Http\Controllers\PostController::class, 'create'])->name('post.create');
 Route::get('/posts/{post}',[\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 Route::post('/posts',[\App\Http\Controllers\PostController::class, 'store'])->name('post.store');
+Route::patch('/posts/{post}',[\App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+Route::delete('/posts/{post}',[\App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
+Route::get('/posts/{post}/edit',[\App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 
 require __DIR__.'/auth.php';

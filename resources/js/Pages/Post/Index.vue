@@ -6,11 +6,13 @@
     </div>
     <div v-for="post in posts" class="mb-8 mt-8 border-t border-gray-300">
       <div>id:{{ post.id }}</div>
-        <div>title:{{ post.title }}</div>
-        <div>content:{{ post.content }}</div>
+        <div>Заголовок: <span class="text-xl">{{ post.title }}</span></div>
+        <div style="white-space: pre-line">Содержание: {{ post.content }}</div>
         <div class="text-sm text-right">created_at:{{ post.date }}</div>
         <div class="text-sm text-right text-sky-500">
             <Link :href="route('post.show',post.id)">Show</Link>
+            <Link :href="route('post.edit',post.id)" class="ml-4">Edit</Link>
+            <Link @click.prevent="deletePost(post.id)" class="ml-4 text-red-500">Delete</Link>
         </div>
 
     </div>
@@ -30,9 +32,13 @@ export default {
     },
     props:[
         'posts'
-    ]
+    ],
 
-
+    methods:{
+        deletePost(id) {
+            this.$inertia.delete(`/posts/${id}`)
+        },
+    }
 }
 </script>
 
