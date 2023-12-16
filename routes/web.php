@@ -41,5 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/posts/{post}',[\App\Http\Controllers\PostController::class, 'update'])->name('post.update');
     Route::delete('/posts/{post}',[\App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
     Route::get('/posts/{post}/edit',[\App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
+    Route::get('/homeworks',[\App\Http\Controllers\SchoolClassController::class, 'index'])->name('homework.index');
+    Route::get('/homeworks/create',[\App\Http\Controllers\SchoolClassController::class, 'create'])->name('homework.create');
+    Route::post('/homeworks',[\App\Http\Controllers\SchoolClassController::class, 'store'])->name('homework.store');
 });
 require __DIR__.'/auth.php';
