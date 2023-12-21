@@ -25,6 +25,9 @@ class StoreRequest extends FormRequest
             'title' => 'required|string',
             'content' => 'required|string',
             'set_for_date' => 'date',
+            'subject_id' => 'required|integer',
+            'class_id' => 'required|integer',
+
         ];
     }
 }

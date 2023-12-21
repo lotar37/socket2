@@ -1,7 +1,7 @@
 <template>
     <AuthenticatedLayout>
             <template #header>
-            <h1 class="text-xl">Домашние задания / Новое</h1>
+            <h1 class="text-xl">Домашние задания / Новое задание по предмету {{ subject_name.name }} для {{ selected_class.name }}</h1>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -43,12 +43,19 @@ export default {
         return {
             title: '',
             content:'',
-
+            set_for_date: '',
+            selected_class: this.schoolClass,
+            subject_name:this.Subject
         }
     },
+    props:[
+        'schoolClass', 'Subject'
+    ],
     methods:{
         store() {
-            this.$inertia.post('/homeworks', {title:this.title, content : this.content, set_for_date : this.set_for_date})
+            console.log(this.selected_class)
+            this.$inertia.post('/homeworks', {title:this.title, content : this.content,
+                set_for_date : this.set_for_date, subject_id: this.subject_name.id, class_id : this.selected_class.id })
         },
     }
 

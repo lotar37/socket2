@@ -41,8 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/posts/{post}',[\App\Http\Controllers\PostController::class, 'update'])->name('post.update');
     Route::delete('/posts/{post}',[\App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
     Route::get('/posts/{post}/edit',[\App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
-    Route::get('/homeworks',[\App\Http\Controllers\SchoolClassController::class, 'index'])->name('homework.index');
-    Route::get('/homeworks/create',[\App\Http\Controllers\SchoolClassController::class, 'create'])->name('homework.create');
-    Route::post('/homeworks',[\App\Http\Controllers\SchoolClassController::class, 'store'])->name('homework.store');
+    Route::get('/homeworks',[\App\Http\Controllers\HomeworkController::class, 'index'])->name('homework.index');
+    Route::post('/homeworks',[\App\Http\Controllers\HomeworkController::class, 'store'])->name('homework.store');
+    Route::get('/homeworks/{school_class}/{Subject}',[\App\Http\Controllers\HomeworkController::class, 'create'])->name('homework.create');
+
+    Route::get('/school_classes',[\App\Http\Controllers\SchoolClassController::class, 'index'])->name('school_classes.index');
+    Route::get('/school_classes/get',[\App\Http\Controllers\SchoolClassController::class, 'getClasses'])->name('school_classes.get');
+    Route::post('/school_classes',[\App\Http\Controllers\SchoolClassController::class, 'store'])->name('school_classes.store');
+
 });
 require __DIR__.'/auth.php';

@@ -18,7 +18,9 @@ class HomeworkResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'content' => $this->content,
-            'set_for_date' => $this->set_for_date->diffForHumans(),
+            'subject_id' => $this->subject_id,
+            'class_id' => $this->class_id,
+            'set_for_date' => $this->set_for_date,
             'date' => $this->created_at->diffForHumans(),
 
 

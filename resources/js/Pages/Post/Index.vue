@@ -15,7 +15,9 @@ export default {
     props:[
         'posts'
     ],
-
+    mounted() {
+        console.log(this.posts)
+    },
     methods:{
         deletePost(id) {
             this.$inertia.delete(`/posts/${id}`)

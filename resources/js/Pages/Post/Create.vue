@@ -1,7 +1,7 @@
 <template>
     <AuthenticatedLayout>
             <template #header>
-            <h1 class="text-xl">Мой чат/Новое сообщение</h1>
+            <h1 class="text-xl">Мой чат/Новое сообщение {{ schoolClass }}</h1>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -43,6 +43,9 @@ export default {
 
         }
     },
+    props:[
+        'schoolClass', 'subject',
+    ],
     methods:{
         store() {
             this.$inertia.post('/posts', {title:this.title, content : this.content})
