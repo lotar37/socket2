@@ -44,10 +44,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/homeworks',[\App\Http\Controllers\HomeworkController::class, 'index'])->name('homework.index');
     Route::post('/homeworks',[\App\Http\Controllers\HomeworkController::class, 'store'])->name('homework.store');
     Route::get('/homeworks/{school_class}/{Subject}',[\App\Http\Controllers\HomeworkController::class, 'create'])->name('homework.create');
+    Route::get('/homeworks/{school_class}/{Subject}/get',[\App\Http\Controllers\HomeworkController::class, 'getHomeworks'])->name('homework.getHomeworks');
 
     Route::get('/school_classes',[\App\Http\Controllers\SchoolClassController::class, 'index'])->name('school_classes.index');
     Route::get('/school_classes/get',[\App\Http\Controllers\SchoolClassController::class, 'getClasses'])->name('school_classes.get');
     Route::post('/school_classes',[\App\Http\Controllers\SchoolClassController::class, 'store'])->name('school_classes.store');
 
+    Route::get('/subject/get',[\App\Http\Controllers\SubjectController::class, 'getSubjects'])->name('subjects.get');
+    Route::post('/subject',[\App\Http\Controllers\SubjectController::class, 'store'])->name('subjects.store');
 });
 require __DIR__.'/auth.php';

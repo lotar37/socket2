@@ -18,6 +18,14 @@ class HomeworkController extends Controller
         $homeworks = HomeworkResource::collection($homeworks)->resolve();
         return inertia('Homework/Index', compact('homeworks'));
     }
+    public function getHomeworks(SchoolClass $schoolClass, Subject $Subject)
+    {
+        $homeworks = Homework::all()->where("class_id", $schoolClass->id)->where('subject_id', $Subject->id);
+        $homeworks = HomeworkResource::collection($homeworks)->resolve();
+        return $homeworks;
+//        dd($homeworks);
+//        return inertia('Homework/Index', compact('homeworks'));
+    }
 
     public function create(SchoolClass $schoolClass, Subject $Subject)
     {

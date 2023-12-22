@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SchoolClass\StoreRequest;
-use App\Http\Resources\SchoolClass\SchoolClassResource;
-use App\Models\SchoolClass;
+use App\Http\Requests\Subject\StoreRequest;
+use App\Http\Resources\Subject\SubjectResource;
+use App\Models\Subject;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class SchoolClassController extends Controller
+class SubjectController extends Controller
 {
     public function index()
     {
-        $classes = SchoolClass::all();
-        $classes = SchoolClassResource::collection($classes)->resolve();
-        return inertia('SchoolClass/', compact('classes'));
+        $subjects = Subject::all();
+        $subjects = SubjectResource::collection($subjects)->resolve();
+        return inertia('Subject/', compact('subjects'));
     }
-    public function getClasses()
+    public function getSubjects()
     {
-        $classes = SchoolClass::all()->sortBy("name");
-        return SchoolClassResource::collection($classes)->resolve();
+        $subjects = Subject::all()->sortBy("name");
+        return SubjectResource::collection($subjects)->resolve();
     }
 
 
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        SchoolClass::create($data);
+        Subject::create($data);
 //        return redirect()->route('homework.index');
     }
     //
