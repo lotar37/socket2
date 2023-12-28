@@ -29,5 +29,12 @@ class SchoolClassController extends Controller
         SchoolClass::create($data);
 //        return redirect()->route('homework.index');
     }
+
+    public function delete(SchoolClass $schoolClass)
+    {
+        $schoolClass->delete();
+
+    }
+
     //
 }

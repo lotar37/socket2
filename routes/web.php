@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/school_classes',[\App\Http\Controllers\SchoolClassController::class, 'index'])->name('school_classes.index');
     Route::get('/school_classes/get',[\App\Http\Controllers\SchoolClassController::class, 'getClasses'])->name('school_classes.get');
     Route::post('/school_classes',[\App\Http\Controllers\SchoolClassController::class, 'store'])->name('school_classes.store');
+    Route::delete('/school_classes/{school_class}',[\App\Http\Controllers\SchoolClassController::class, 'delete'])->name('school_classes.delete');
 
     Route::get('/subject/get',[\App\Http\Controllers\SubjectController::class, 'getSubjects'])->name('subjects.get');
     Route::post('/subject',[\App\Http\Controllers\SubjectController::class, 'store'])->name('subjects.store');
